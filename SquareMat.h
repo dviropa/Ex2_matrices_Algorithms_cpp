@@ -16,8 +16,12 @@ namespace matrices {
         Node* arey;
 
         bool chekeeqwls(const SquareMat& arr) const;
+
         int summatrix() const;
 
+        double helpDeterminant(const SquareMat& mat,int row) const;
+        
+        SquareMat maketempSquareMat(const SquareMat& mat, int colToRemove) const ;
     public:
     SquareMat(const SquareMat& other); // copy constructor
     SquareMat(int rows, int cols); // רק לצורך תאימות
@@ -47,7 +51,6 @@ namespace matrices {
 
         double* operator[](size_t i);
         const double* operator[](size_t i) const;
-        double operator!() const;  // דטרמיננטה
 
 
         bool operator==(const SquareMat& other) const;
@@ -66,7 +69,14 @@ namespace matrices {
         SquareMat& operator=(const SquareMat& other);
 
         friend std::ostream& operator<<(std::ostream& os, const SquareMat& mat);
+
+        double operator!() const ;
+    
+
     };
+
+
+
 
 } // namespace SquareMat
 

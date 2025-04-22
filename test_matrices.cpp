@@ -65,3 +65,30 @@ TEST_CASE("Matrix transpose") {
     CHECK(t[1][0] == 7);
     CHECK(t[0][1] == 9);
 }
+
+
+TEST_CASE("Determinant of square matrix") {
+    using namespace matrices;
+
+    SUBCASE("1x1 Matrix") {
+        SquareMat mat(1);
+        mat[0][0] = 7;
+        CHECK(!mat == doctest::Approx(7.0));
+    }
+
+    SUBCASE("2x2 Matrix") {
+        SquareMat mat(2);
+        mat[0][0] = 4; mat[0][1] = 6;
+        mat[1][0] = 3; mat[1][1] = 8;
+        CHECK(!mat == doctest::Approx(14.0));  // 4*8 - 6*3 = 32 - 18
+    }
+
+    SUBCASE("3x3 Matrix") {
+        SquareMat mat(3);
+        mat[0][0] = 6;  mat[0][1] = 1;  mat[0][2] = 1;
+        mat[1][0] = 4;  mat[1][1] = -2; mat[1][2] = 5;
+        mat[2][0] = 2;  mat[2][1] = 8;  mat[2][2] = 7;
+        CHECK(!mat == doctest::Approx(-306.0));
+    }
+}
+
