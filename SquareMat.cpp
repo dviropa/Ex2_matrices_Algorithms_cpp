@@ -38,7 +38,7 @@ namespace matrices {
         Node* prev = nullptr;
     
         for (int i = 0; i < length; ++i) {
-            double* row = new double[length](); // אתחול כל האיברים ל־0
+            double* row = new double[length](); 
             Node* node = new Node(row, i);
             if (!arey)
                 arey = node;
@@ -53,12 +53,10 @@ namespace matrices {
         Node* curr = arey;
         while (curr) {
             Node* next = curr->getnext();
-            // delete[] curr->getarr();
             delete curr;
             curr = next;
         }    }
 
-    // int SquareMat::getwidth() const { return width; }
     int SquareMat::getlength() const { return length; }
 
     int SquareMat::summatrix() const {
@@ -74,7 +72,6 @@ namespace matrices {
     }
 
     double* SquareMat::operator[](size_t i) {
-        // כאן נניח שאתה משתמש ב־arey כמו רשימה מקושרת של שורות
         Node* curr = arey;
         while (curr && curr->getname() != i) curr = curr->getnext();
         if (!curr) throw std::out_of_range("Index out of range");
@@ -271,18 +268,16 @@ namespace matrices {
     SquareMat& SquareMat::operator=(const SquareMat& other) {
         if (this == &other) return *this;
     
-        // שחרור הזיכרון הקיים
         Node* curr = arey;
         while (curr) {
             Node* next = curr->getnext();
-            delete[] curr->getarr();  // שחרר את השורה (מטריצה)
-            delete curr;              // שחרר את הצומת
+            delete[] curr->getarr(); 
+            delete curr;             
             curr = next;
         }
     
         arey = nullptr;
     
-        // העתקה כמו copy constructor
         length = other.length;
         Node* currOther = other.arey;
         Node* prevNew = nullptr;

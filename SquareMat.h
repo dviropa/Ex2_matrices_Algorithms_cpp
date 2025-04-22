@@ -1,4 +1,3 @@
-// SquareMat.h (הכותרת של המטריצה)
 #ifndef SQUAREMAT_H
 #define SQUAREMAT_H
 #include "Node.h"
@@ -7,7 +6,7 @@
 
 namespace matrices {
 
-    class Node; // הכרזה מוקדמת
+    class Node; 
 
     class SquareMat {
     private:
@@ -24,7 +23,7 @@ namespace matrices {
         SquareMat maketempSquareMat(const SquareMat& mat, int colToRemove) const ;
     public:
     SquareMat(const SquareMat& other); // copy constructor
-    SquareMat(int rows, int cols); // רק לצורך תאימות
+    SquareMat(int rows, int cols); 
 
         SquareMat( int length);
         ~SquareMat();

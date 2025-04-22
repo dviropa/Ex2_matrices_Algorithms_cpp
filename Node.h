@@ -10,7 +10,7 @@ namespace matrices {
         Node* next;
 
     public:
-        Node(double* value, int name); // קונסטרקטור עם שם
+        Node(double* value, int name);
         ~Node();
 
         int getname() const;
@@ -20,7 +20,7 @@ namespace matrices {
         Node* getnext() const;
         void setnext(Node* nextNode);
 
-        Node* goTo(int index); // שינוי שם כי goto זה מילה שמורה
+        Node* goTo(int index); 
         double* get(int index);
 
         void set(double* value);

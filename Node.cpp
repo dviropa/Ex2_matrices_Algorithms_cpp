@@ -6,7 +6,7 @@ namespace matrices {
     Node::Node(double* value, int name) : arr(value), name(name), next(nullptr) {}
 
     Node::~Node() {
-        delete[] arr; // משחרר את המערך אם נוצר עם new double[]
+        delete[] arr;
     }
 
     Node* Node::getnext()const  {
